@@ -1,0 +1,3 @@
+ALTER TABLE [Group] 
+ADD IsDeleted BIT 
+DEFAULT 0 NOT NULL;

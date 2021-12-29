@@ -1,0 +1,95 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medilab.DataAccess", "Medilab.DataAccess\Medilab.DataAccess.csproj", "{13DA1600-D731-4454-8023-63FD32DCEC84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medilab.BusinessObjects", "Medilab.BusinessObjects\Medilab.BusinessObjects.csproj", "{8654B28E-F410-4F3B-9FD7-A746B695120F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medilab.UserInterface", "Medilab.UserInterface\Medilab.UserInterface.csproj", "{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Mediser.DataBase", "Mediser.DataBase\Mediser.DataBase.sqlproj", "{691A6E71-F481-492D-BDD8-FE3958D33EB8}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Labomed|Any CPU = Labomed|Any CPU
+		Labomed|Mixed Platforms = Labomed|Mixed Platforms
+		Labomed|x86 = Labomed|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Labomed|Any CPU.ActiveCfg = Labomed|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Labomed|Any CPU.Build.0 = Labomed|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Labomed|Mixed Platforms.ActiveCfg = Labomed|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Labomed|Mixed Platforms.Build.0 = Labomed|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Labomed|x86.ActiveCfg = Labomed|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{13DA1600-D731-4454-8023-63FD32DCEC84}.Release|x86.ActiveCfg = Release|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Labomed|Any CPU.ActiveCfg = Labomed|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Labomed|Any CPU.Build.0 = Labomed|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Labomed|Mixed Platforms.ActiveCfg = Labomed|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Labomed|Mixed Platforms.Build.0 = Labomed|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Labomed|x86.ActiveCfg = Labomed|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8654B28E-F410-4F3B-9FD7-A746B695120F}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Debug|x86.ActiveCfg = Debug|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Debug|x86.Build.0 = Debug|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Labomed|Any CPU.ActiveCfg = Labomed|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Labomed|Mixed Platforms.ActiveCfg = Labomed|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Labomed|Mixed Platforms.Build.0 = Labomed|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Labomed|x86.ActiveCfg = Labomed|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Labomed|x86.Build.0 = Labomed|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Release|Any CPU.ActiveCfg = Release|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Release|Mixed Platforms.Build.0 = Release|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Release|x86.ActiveCfg = Release|x86
+		{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}.Release|x86.Build.0 = Release|x86
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Labomed|Any CPU.ActiveCfg = Labomed|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Labomed|Any CPU.Build.0 = Labomed|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Labomed|Any CPU.Deploy.0 = Labomed|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Labomed|Mixed Platforms.ActiveCfg = Labomed|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Labomed|x86.ActiveCfg = Labomed|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{691A6E71-F481-492D-BDD8-FE3958D33EB8}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

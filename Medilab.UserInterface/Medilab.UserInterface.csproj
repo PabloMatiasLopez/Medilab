@@ -1,0 +1,865 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD6FD1E4-F623-4968-A45E-CB2147CD25B2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Medilab.UserInterface</RootNamespace>
+    <AssemblyName>Medilab.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <PublishUrl>\\10.0.0.100\Instalador\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\10.0.0.100\Instalador\</InstallUrl>
+    <ProductName>Labomed</ProductName>
+    <PublisherName>Labomed</PublisherName>
+    <SuiteName>Lebomed</SuiteName>
+    <MinimumRequiredVersion>2.0.5.1</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>2.0.5.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <ExcludeDeploymentUrl>true</ExcludeDeploymentUrl>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B66F0FA635EF6F9CA9F413E3AE6717BF5DBD825E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Medilab.UserInterface_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Medilab.UserInterface.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\mainIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Labomed|x86'">
+    <OutputPath>bin\x86\Labomed\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\..\..\Varios\Aspose\net3.5\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExtComponents\EPPlus 2.8.0.1\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="SautinSoft.ExcelToPdf">
+      <HintPath>C:\Users\Matias\Downloads\Excel to PDF .Net (3.5.2.9)\Bin\Net 4.0\SautinSoft.ExcelToPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attention\ClinicalHistoryResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attention\ClinicalHistoryResults.Designer.cs">
+      <DependentUpon>ClinicalHistoryResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attention\ClinicalHistoryResume.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attention\ClinicalHistoryResume.Designer.cs">
+      <DependentUpon>ClinicalHistoryResume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attention\FrmClinicalHistoryResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attention\FrmClinicalHistoryResult.Designer.cs">
+      <DependentUpon>FrmClinicalHistoryResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attention\PendingPatientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attention\PendingPatientList.Designer.cs">
+      <DependentUpon>PendingPatientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attention\PendingPracticesDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attention\PendingPracticesDetails.Designer.cs">
+      <DependentUpon>PendingPracticesDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingReport\FrmDebtByClientReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillingReport\FrmDebtByClientReport.Designer.cs">
+      <DependentUpon>FrmDebtByClientReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalHistory\FrmAddClinicalHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClinicalHistory\FrmAddClinicalHistory.Designer.cs">
+      <DependentUpon>FrmAddClinicalHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalHistory\FrmClinicalHistoryGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClinicalHistory\FrmClinicalHistoryGrid.Designer.cs">
+      <DependentUpon>FrmClinicalHistoryGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalHistory\FrmGroupPractices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClinicalHistory\FrmGroupPractices.Designer.cs">
+      <DependentUpon>FrmGroupPractices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalHistory\PracticeListDto.cs" />
+    <Compile Include="Configuration\frmCAEConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\frmCAEConfiguration.Designer.cs">
+      <DependentUpon>frmCAEConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmClient.Designer.cs">
+      <DependentUpon>FrmClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\frmCompanyInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\frmCompanyInformation.Designer.cs">
+      <DependentUpon>frmCompanyInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmAddEditUser.Designer.cs">
+      <DependentUpon>FrmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmEmailList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmEmailList.Designer.cs">
+      <DependentUpon>FrmEmailList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmFiscalRetention.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmFiscalRetention.Designer.cs">
+      <DependentUpon>FrmFiscalRetention.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmFiscalRetentionProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmFiscalRetentionProfile.Designer.cs">
+      <DependentUpon>FrmFiscalRetentionProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\frmNextCreditNoteNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\frmNextCreditNoteNumber.Designer.cs">
+      <DependentUpon>frmNextCreditNoteNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\frmNextDebitNoteNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\frmNextDebitNoteNumber.Designer.cs">
+      <DependentUpon>frmNextDebitNoteNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmNextInvoiceNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmNextInvoiceNumber.Designer.cs">
+      <DependentUpon>FrmNextInvoiceNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmPrivateMedicineCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmPrivateMedicineCompany.designer.cs">
+      <DependentUpon>FrmPrivateMedicineCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmRole.Designer.cs">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmSpeciality.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmSpeciality.Designer.cs">
+      <DependentUpon>FrmSpeciality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmUserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmUserList.Designer.cs">
+      <DependentUpon>FrmUserList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmWorkRiskInsurance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmWorkRiskInsurance.Designer.cs">
+      <DependentUpon>FrmWorkRiskInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreditNote\frmCreditNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreditNote\frmCreditNote.Designer.cs">
+      <DependentUpon>frmCreditNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreditNote\FrmCreditNoteList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreditNote\FrmCreditNoteList.Designer.cs">
+      <DependentUpon>FrmCreditNoteList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DebitNote\frmDebitNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebitNote\frmDebitNote.Designer.cs">
+      <DependentUpon>frmDebitNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DebitNote\frmDebitNoteList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebitNote\frmDebitNoteList.Designer.cs">
+      <DependentUpon>frmDebitNoteList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Excel\AsismedExcelHandler.cs" />
+    <Compile Include="Excel\CreditNoteExcelHandler.cs" />
+    <Compile Include="Excel\InvoiceExcelHandler.cs" />
+    <Compile Include="Excel\LaboMedExcelnHandler.cs" />
+    <Compile Include="Excel\MovilMedExcelHandler.cs" />
+    <Compile Include="Excel\MSExcel.cs" />
+    <Compile Include="Excel\ReceiptExcelHandler.cs" />
+    <Compile Include="Invoice\FrmAditionalItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\FrmAditionalItem.Designer.cs">
+      <DependentUpon>FrmAditionalItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\CreateInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\CreateInvoice.Designer.cs">
+      <DependentUpon>CreateInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\FrmInvoiceEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\FrmInvoiceEdit.Designer.cs">
+      <DependentUpon>FrmInvoiceEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\FrmInvoiceListPaidRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\FrmInvoiceListPaidRecord.Designer.cs">
+      <DependentUpon>FrmInvoiceListPaidRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\FrmInvoicePendingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\FrmInvoicePendingList.Designer.cs">
+      <DependentUpon>FrmInvoicePendingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\FrmSelectAdditionalItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\FrmSelectAdditionalItem.Designer.cs">
+      <DependentUpon>FrmSelectAdditionalItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\IDetailPreview.cs" />
+    <Compile Include="Invoice\FrmInvoiceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\FrmInvoiceList.Designer.cs">
+      <DependentUpon>FrmInvoiceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\ucFreeTextPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Invoice\ucFreeTextPreview.Designer.cs">
+      <DependentUpon>ucFreeTextPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\InvoicePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\InvoicePreview.Designer.cs">
+      <DependentUpon>InvoicePreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\ucFullDetailPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Invoice\ucFullDetailPreview.Designer.cs">
+      <DependentUpon>ucFullDetailPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\ucPatientDetailInvoicePreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Invoice\ucPatientDetailInvoicePreview.Designer.cs">
+      <DependentUpon>ucPatientDetailInvoicePreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\ucResumedInvoiceDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Invoice\ucResumedInvoiceDetail.Designer.cs">
+      <DependentUpon>ucResumedInvoiceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\FrmAddEditPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacientes\FrmAddEditPatient.Designer.cs">
+      <DependentUpon>FrmAddEditPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\FrmHistoryAddressList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacientes\FrmHistoryAddressList.Designer.cs">
+      <DependentUpon>FrmHistoryAddressList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\FrmPatientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacientes\FrmPatientList.Designer.cs">
+      <DependentUpon>FrmPatientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\UcAddEditPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pacientes\UcAddEditPatient.Designer.cs">
+      <DependentUpon>UcAddEditPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\UcAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pacientes\UcAddress.Designer.cs">
+      <DependentUpon>UcAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTypes\frmCash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentTypes\frmCash.Designer.cs">
+      <DependentUpon>frmCash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTypes\frmCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentTypes\frmCheck.Designer.cs">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTypes\frmCreditNotePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentTypes\frmCreditNotePayment.Designer.cs">
+      <DependentUpon>frmCreditNotePayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTypes\frmElectronicTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentTypes\frmElectronicTransfer.Designer.cs">
+      <DependentUpon>frmElectronicTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTypes\frmRetention.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentTypes\frmRetention.Designer.cs">
+      <DependentUpon>frmRetention.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTypes\frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentTypes\PaymentFormFactory.cs" />
+    <Compile Include="Practices\FrmGroupMedicalPractice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Practices\FrmGroupMedicalPractice.Designer.cs">
+      <DependentUpon>FrmGroupMedicalPractice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Practices\FrmPractices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Practices\FrmPractices.Designer.cs">
+      <DependentUpon>FrmPractices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Practices\FrmPriceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Practices\FrmPriceList.Designer.cs">
+      <DependentUpon>FrmPriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Practices\FrmSearchPractices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Practices\FrmSearchPractices.Designer.cs">
+      <DependentUpon>FrmSearchPractices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintUtilities\ExcelToPdf.cs" />
+    <Compile Include="PrintUtilities\IInvoiceBody.cs" />
+    <Compile Include="PrintUtilities\Invoice.cs" />
+    <Compile Include="PrintUtilities\InvoiceBodyFree.cs" />
+    <Compile Include="PrintUtilities\InvoiceBodyFull.cs" />
+    <Compile Include="PrintUtilities\InvoiceBodyResumed.cs" />
+    <Compile Include="PrintUtilities\InvoiceFooter.cs" />
+    <Compile Include="PrintUtilities\InvoiceHeader.cs" />
+    <Compile Include="PrintUtilities\MedicalExamUtils.cs" />
+    <Compile Include="PrintUtilities\PrintDetails.cs" />
+    <Compile Include="PrintUtilities\Printer.cs" />
+    <Compile Include="PrintUtilities\PrinterMetaData.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receipt\FrmCreateReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmCreateReceipt.Designer.cs">
+      <DependentUpon>FrmCreateReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receipt\FrmReceiptList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmReceiptList.Designer.cs">
+      <DependentUpon>FrmReceiptList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PracticesByClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PracticesByClient.Designer.cs">
+      <DependentUpon>PracticesByClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LaboratoryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\LaboratoryReport.Designer.cs">
+      <DependentUpon>LaboratoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PracticesBySpeciality.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PracticesBySpeciality.Designer.cs">
+      <DependentUpon>PracticesBySpeciality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportTemplate.Designer.cs">
+      <DependentUpon>ReportTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\CustomColumnHeaderCell.cs" />
+    <Compile Include="Utilities\DataTableConverter.cs" />
+    <Compile Include="Utilities\ExcelHandler.cs" />
+    <Compile Include="Utilities\FormHandler.cs" />
+    <Compile Include="Utilities\PropertyComparer.cs" />
+    <Compile Include="Utilities\SortableBindingList.cs" />
+    <Compile Include="Utilities\UIUtils.cs" />
+    <Compile Include="Utilities\Validator.cs" />
+    <Compile Include="Utils\FileDirectoryHandler.cs" />
+    <EmbeddedResource Include="Attention\ClinicalHistoryResults.resx">
+      <DependentUpon>ClinicalHistoryResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attention\ClinicalHistoryResume.resx">
+      <DependentUpon>ClinicalHistoryResume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attention\FrmClinicalHistoryResult.resx">
+      <DependentUpon>FrmClinicalHistoryResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attention\PendingPatientList.resx">
+      <DependentUpon>PendingPatientList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attention\PendingPracticesDetails.resx">
+      <DependentUpon>PendingPracticesDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingReport\FrmDebtByClientReport.resx">
+      <DependentUpon>FrmDebtByClientReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClinicalHistory\FrmAddClinicalHistory.resx">
+      <DependentUpon>FrmAddClinicalHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClinicalHistory\FrmClinicalHistoryGrid.resx">
+      <DependentUpon>FrmClinicalHistoryGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClinicalHistory\FrmGroupPractices.resx">
+      <DependentUpon>FrmGroupPractices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\frmCAEConfiguration.resx">
+      <DependentUpon>frmCAEConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmClient.resx">
+      <DependentUpon>FrmClient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\frmCompanyInformation.resx">
+      <DependentUpon>frmCompanyInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmAddEditUser.resx">
+      <DependentUpon>FrmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmEmailList.resx">
+      <DependentUpon>FrmEmailList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmFiscalRetention.resx">
+      <DependentUpon>FrmFiscalRetention.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmFiscalRetentionProfile.resx">
+      <DependentUpon>FrmFiscalRetentionProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\frmNextCreditNoteNumber.resx">
+      <DependentUpon>frmNextCreditNoteNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\frmNextDebitNoteNumber.resx">
+      <DependentUpon>frmNextDebitNoteNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmNextInvoiceNumber.resx">
+      <DependentUpon>FrmNextInvoiceNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmPrivateMedicineCompany.resx">
+      <DependentUpon>FrmPrivateMedicineCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmRole.resx">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmSpeciality.resx">
+      <DependentUpon>FrmSpeciality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmUserList.resx">
+      <DependentUpon>FrmUserList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmWorkRiskInsurance.resx">
+      <DependentUpon>FrmWorkRiskInsurance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreditNote\frmCreditNote.resx">
+      <DependentUpon>frmCreditNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreditNote\FrmCreditNoteList.resx">
+      <DependentUpon>FrmCreditNoteList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DebitNote\frmDebitNote.resx">
+      <DependentUpon>frmDebitNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DebitNote\frmDebitNoteList.resx">
+      <DependentUpon>frmDebitNoteList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\FrmAditionalItem.resx">
+      <DependentUpon>FrmAditionalItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\CreateInvoice.resx">
+      <DependentUpon>CreateInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\FrmInvoiceEdit.resx">
+      <DependentUpon>FrmInvoiceEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\FrmInvoiceList.resx">
+      <DependentUpon>FrmInvoiceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\FrmInvoiceListPaidRecord.resx">
+      <DependentUpon>FrmInvoiceListPaidRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\FrmInvoicePendingList.resx">
+      <DependentUpon>FrmInvoicePendingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\FrmSelectAdditionalItem.resx">
+      <DependentUpon>FrmSelectAdditionalItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\ucFreeTextPreview.resx">
+      <DependentUpon>ucFreeTextPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\InvoicePreview.resx">
+      <DependentUpon>InvoicePreview.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\ucFullDetailPreview.resx">
+      <DependentUpon>ucFullDetailPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\ucPatientDetailInvoicePreview.resx">
+      <DependentUpon>ucPatientDetailInvoicePreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\ucResumedInvoiceDetail.resx">
+      <DependentUpon>ucResumedInvoiceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\FrmAddEditPatient.resx">
+      <DependentUpon>FrmAddEditPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\FrmHistoryAddressList.resx">
+      <DependentUpon>FrmHistoryAddressList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\FrmPatientList.resx">
+      <DependentUpon>FrmPatientList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\UcAddEditPatient.resx">
+      <DependentUpon>UcAddEditPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\UcAddress.resx">
+      <DependentUpon>UcAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentTypes\frmCash.resx">
+      <DependentUpon>frmCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentTypes\frmCheck.resx">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentTypes\frmCreditNotePayment.resx">
+      <DependentUpon>frmCreditNotePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentTypes\frmElectronicTransfer.resx">
+      <DependentUpon>frmElectronicTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentTypes\frmRetention.resx">
+      <DependentUpon>frmRetention.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Practices\FrmGroupMedicalPractice.resx">
+      <DependentUpon>FrmGroupMedicalPractice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Practices\FrmPractices.resx">
+      <DependentUpon>FrmPractices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Practices\FrmPriceList.resx">
+      <DependentUpon>FrmPriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Practices\FrmSearchPractices.resx">
+      <DependentUpon>FrmSearchPractices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Receipt\FrmCreateReceipt.resx">
+      <DependentUpon>FrmCreateReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receipt\FrmReceiptList.resx">
+      <DependentUpon>FrmReceiptList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PracticesByClient.resx">
+      <DependentUpon>PracticesByClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LaboratoryReport.resx">
+      <DependentUpon>LaboratoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PracticesBySpeciality.resx">
+      <DependentUpon>PracticesBySpeciality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportTemplate.resx">
+      <DependentUpon>ReportTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="App.Labomed.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="Medilab.UserInterface_1_TemporaryKey.pfx" />
+    <None Include="Medilab.UserInterface_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Icons\128x128\Application.png" />
+    <Content Include="Properties\Icons\128x128\Calibration.png" />
+    <Content Include="Properties\Icons\128x128\ChronologicalReview.png" />
+    <Content Include="Properties\Icons\128x128\DefineControls.png" />
+    <Content Include="Properties\Icons\128x128\Maintenance.png" />
+    <Content Include="Properties\Icons\128x128\Measurement.png" />
+    <Content Include="Properties\Icons\128x128\OnOffSwitch.png" />
+    <Content Include="Properties\Icons\128x128\ParameterReview.png" />
+    <Content Include="Properties\Icons\128x128\PatientData.png" />
+    <Content Include="Properties\Icons\128x128\PatientFile.png" />
+    <Content Include="Properties\Icons\128x128\QualityControl.png" />
+    <Content Include="Properties\Icons\128x128\RunControl.png" />
+    <Content Include="Properties\Icons\128x128\Setup.png" />
+    <Content Include="Properties\Icons\128x128\ViewResults.png" />
+    <Content Include="Properties\Icons\32x32\AcceptCalibration.png" />
+    <Content Include="Properties\Icons\32x32\AcceptQualityControl.png" />
+    <Content Include="Properties\Icons\32x32\Archive.png" />
+    <Content Include="Properties\Icons\32x32\BandAid.png" />
+    <Content Include="Properties\Icons\32x32\Calendar.png" />
+    <Content Include="Properties\Icons\32x32\DefinedParameters.png" />
+    <Content Include="Properties\Icons\32x32\Delete.png" />
+    <Content Include="Properties\Icons\32x32\DoctorFemale.png" />
+    <Content Include="Properties\Icons\32x32\DoctorMale.png" />
+    <Content Include="Properties\Icons\32x32\DutyRoster.png" />
+    <Content Include="Properties\Icons\32x32\Edit.png" />
+    <Content Include="Properties\Icons\32x32\Export.png" />
+    <Content Include="Properties\Icons\32x32\FirstAidKit.png" />
+    <Content Include="Properties\Icons\32x32\History.png" />
+    <Content Include="Properties\Icons\32x32\Hospital.png" />
+    <Content Include="Properties\Icons\32x32\KidneyDish.png" />
+    <Content Include="Properties\Icons\32x32\LastThreeMonths.png" />
+    <Content Include="Properties\Icons\32x32\New.png" />
+    <Content Include="Properties\Icons\32x32\PatientData.png" />
+    <Content Include="Properties\Icons\32x32\PatientFemale.png" />
+    <Content Include="Properties\Icons\32x32\PatientFile.png" />
+    <Content Include="Properties\Icons\32x32\PatientMale.png" />
+    <Content Include="Properties\Icons\32x32\Pills.png" />
+    <Content Include="Properties\Icons\32x32\Prescription.png" />
+    <Content Include="Properties\Icons\32x32\PrinterSettings.png" />
+    <Content Include="Properties\Icons\32x32\Radioactive.png" />
+    <Content Include="Properties\Icons\32x32\RejectCalibration.png" />
+    <Content Include="Properties\Icons\32x32\RejectQualityControl.png" />
+    <Content Include="Properties\Icons\32x32\RerunCalibration.png" />
+    <Content Include="Properties\Icons\32x32\RerunQualityControl.png" />
+    <Content Include="Properties\Icons\32x32\RunCalibration.png" />
+    <Content Include="Properties\Icons\32x32\Save.png" />
+    <Content Include="Properties\Icons\32x32\Search.png" />
+    <Content Include="Properties\Icons\32x32\Select.png" />
+    <Content Include="Properties\Icons\32x32\Skalpell.png" />
+    <Content Include="Properties\Icons\32x32\Stethoscope.png" />
+    <Content Include="Properties\Icons\32x32\Syringe.png" />
+    <Content Include="Properties\Icons\32x32\Task.png" />
+    <Content Include="Properties\Icons\32x32\TestTubes.png" />
+    <Content Include="Properties\Icons\32x32\Thermometer.png" />
+    <Content Include="Properties\Icons\32x32\Tooth.png" />
+    <Content Include="Properties\Icons\32x32\UserSetup.png" />
+    <Content Include="Properties\Icons\32x32\Vial-O.png" />
+    <Content Include="Properties\Icons\32x32\Vial-Pills.png" />
+    <Content Include="Properties\Icons\32x32\Vial-X.png" />
+    <Content Include="Properties\Icons\32x32\XRay.png" />
+    <None Include="Resources\mainIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Medilab.BusinessObjects\Medilab.BusinessObjects.csproj">
+      <Project>{8654B28E-F410-4F3B-9FD7-A746B695120F}</Project>
+      <Name>Medilab.BusinessObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

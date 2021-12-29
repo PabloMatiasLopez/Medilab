@@ -1,0 +1,516 @@
+using System;
+using System.Linq;
+using System.IO;
+using Medilab.BusinessObjects.Configuration;
+using OfficeOpenXml;
+using System.Drawing;
+using OfficeOpenXml.Drawing;
+using Medilab.BusinessObjects.Utils;
+using Medilab.UserInterface.Utilities;
+using Medilab.BusinessObjects.ClinicalHistory;
+using System.Configuration;
+using Medilab.BusinessObjects.Address;
+
+namespace Medilab.UserInterface.Excel
+{
+    public static class LaboMedExcelnHandler
+    {
+        public static void GenerateExcel(Guid clinicHistoryId, string filePath, string companyName)
+        {
+            MSExcel excel = new MSExcel();
+            RemoveFile(string.Concat(ConfigurationSettings.AppSettings["ExcelPath"], clinicHistoryId.ToString(), ".xlsx"));
+            //// Get the file we are going to process
+            File.Copy(filePath,
+                      string.Concat(ConfigurationSettings.AppSettings["ExcelPath"], clinicHistoryId.ToString(), ".xlsx"));
+
+            var template =
+                new FileInfo(string.Concat(ConfigurationSettings.AppSettings["ExcelPath"], clinicHistoryId.ToString(),
+                                           ".xlsx"));
+
+            //// Open and read the XlSX file.
+            using (var package = new ExcelPackage(template))
+            {
+                var clinicHistory = MedicalHistory.GetMedicalHistory(clinicHistoryId);
+
+            //    // Get the work book in the file
+                ExcelWorkbook workBook = package.Workbook;
+                if (workBook != null)
+                {
+                    if (workBook.Worksheets.Count > 0)
+                    {
+            //            #region FirstPage
+
+            //            // Get the first worksheet
+                        ExcelWorksheet currentWorksheet = workBook.Worksheets.First();
+
+            //            if (!string.IsNullOrEmpty(clinicHistory.Patient.Photo))
+            //            {
+            //                if (
+            //                    File.Exists(string.Concat(ConfigurationSettings.AppSettings["filePhotoServerPath"],
+            //                                              clinicHistory.Patient.Photo)))
+            //                {
+            //                    AddImage(currentWorksheet, 7, 13,
+            //                             string.Concat(ConfigurationSettings.AppSettings["filePhotoServerPath"],
+            //                                           clinicHistory.Patient.Photo), 170, 185);
+            //                }
+            //            }
+
+            //            var companyInfoList = CompanyInfo.GetCompanyInfoList();
+            //            var companyInfo = (from cil in companyInfoList
+            //                               where cil.Name == companyName
+            //                               select cil).First();
+            //            if (!string.IsNullOrEmpty(companyInfo.Image))
+            //            {
+            //                if (
+            //                    File.Exists(string.Concat(ConfigurationSettings.AppSettings["fileImagePath"],
+            //                                              companyInfo.Image)))
+            //                {
+            //                    AddImage(currentWorksheet, 2, 0,
+            //                             string.Concat(ConfigurationSettings.AppSettings["fileImagePath"],
+            //                                           companyInfo.Image), 190, 103);
+            //                }
+            //            }
+
+            //            currentWorksheet.Cells["C6"].Value = string.Concat(companyInfo.Address, " - (",
+            //                                                               companyInfo.PostalCode, ")", ", ",
+            //                                                               companyInfo.Province, " Tels.: ",
+            //                                                               companyInfo.Phone,
+            //                                                               " - Tel/Fax ", companyInfo.Fax, " Email: ",
+            //                                                               companyInfo.Email);
+
+            //            var clientAddress = clinicHistory.Client.Addresses.First();
+            //            //Header of the first page
+            //            currentWorksheet.Cells["C10"].Value = clinicHistory.Client.Name;
+            //            currentWorksheet.Cells["I10"].Value = clinicHistory.Client.Cuit;
+            //            currentWorksheet.Cells["C11"].Value =
+            //                string.Concat(clientAddress.StreetLineOne, " ",
+            //                              clientAddress.StreetLineTwo, ", ",
+            //                              clientAddress.AddressState.Name);
+            //            currentWorksheet.Cells["I11"].Value = clinicHistory.Client.PhoneNumber;
+
+            //            currentWorksheet.Cells["E13"].Value = string.Concat(clinicHistory.Patient.LastName, ", ",
+            //                                                                clinicHistory.Patient.FirstName);
+            //            currentWorksheet.Cells["E14"].Value = clinicHistory.Patient.BirthDay.ToShortDateString();
+            //            currentWorksheet.Cells["C15"].Value = UiUtils.GetAge(clinicHistory.Patient.BirthDay).ToString();
+            //            currentWorksheet.Cells["D18"].Value = clinicHistory.Patient.CivilState;
+            //            currentWorksheet.Cells["D19"].Value = clinicHistory.Patient.InstructionLevel;
+            //            currentWorksheet.Cells["C20"].Value = clinicHistory.Patient.InstructionTitle;
+
+            //            currentWorksheet.Cells["E16"].Value = clinicHistory.Patient.BirthPlace.Name;
+            //            currentWorksheet.Cells["D22"].Value =
+            //                string.Concat(clinicHistory.Patient.DocumentType.ToString(), " ",
+            //                              clinicHistory.Patient.DocumentNumber);
+
+            //            currentWorksheet.Cells["I6"].Value = clinicHistory.CreatedDate.ToShortDateString();
+            //            Address address = clinicHistory.Patient.Addresses.Where(x => x.Type == AddressType.Casa).First();
+            //            currentWorksheet.Cells["D23"].Value =
+            //                string.Concat(address.StreetLineOne + " " + address.StreetLineTwo);
+            //            currentWorksheet.Cells["G3"].Value = clinicHistory.TypeOfExam.ToString().ToUpper();
+            //            currentWorksheet.Cells["E25"].Value = clinicHistory.TaskToDo;
+            //            currentWorksheet.Cells["D26"].Value = clinicHistory.WorkArea;
+
+
+            //            //Records
+            //            currentWorksheet.Cells["d31"].Value = clinicHistory.MedicalExam.HereditaryRecords;
+            //            currentWorksheet.Cells["d33"].Value = clinicHistory.MedicalExam.PathologicalRecords;
+            //            currentWorksheet.Cells["d36"].Value = clinicHistory.MedicalExam.SurgicalRecords;
+            //            currentWorksheet.Cells["d38"].Value = clinicHistory.MedicalExam.TraumaRecors;
+            //            currentWorksheet.Cells["d40"].Value = clinicHistory.MedicalExam.ObstetricalRecords;
+            //            currentWorksheet.Cells["c43"].Value = clinicHistory.MedicalExam.OtherRecords;
+
+            //            //Habits
+            //            string habits = string.Empty;
+            //            if (clinicHistory.MedicalExam.Smoke)
+            //            {
+            //                habits = string.Concat("Fuma (", clinicHistory.MedicalExam.SmokeCount,
+            //                                       "), ");
+
+            //            }
+            //            else
+            //            {
+            //                habits = "No fuma, ";
+            //            }
+            //            if (clinicHistory.MedicalExam.Alcohol)
+            //            {
+            //                habits = string.Concat(habits, "Consume bebidas alcoholicas ( ",
+            //                                       clinicHistory.MedicalExam.AlcoholCount, "), ");
+
+            //            }
+            //            else
+            //            {
+            //                habits = string.Concat(habits, "No consume bebidas alcoholicas, ");
+            //            }
+            //            if (clinicHistory.MedicalExam.NormalSleep)
+            //            {
+            //                habits = string.Concat(habits, "Tiene sueño normal y decansa (",
+            //                                       clinicHistory.MedicalExam.SleepHours, "), ");
+
+            //            }
+            //            else
+            //            {
+            //                habits = string.Concat(habits, "No tiene sueño normal y no decansa (",
+            //                                       clinicHistory.MedicalExam.SleepHours, "), ");
+            //            }
+            //            if (clinicHistory.MedicalExam.Sports)
+            //            {
+            //                habits = string.Concat(habits, "Realiza actividad física (",
+            //                                       clinicHistory.MedicalExam.SportsDetails, "). ");
+            //            }
+            //            else
+            //            {
+            //                habits = string.Concat(habits, "No realiza actividad física.");
+            //            }
+            //            currentWorksheet.Cells["F45"].Value = habits;
+
+                        //Second Part:
+                        currentWorksheet.Cells["C58"].Value = clinicHistory.CreatedDate.ToShortDateString();
+                        currentWorksheet.Cells["C59"].Value = clinicHistory.Client.Name;
+                        currentWorksheet.Cells["H58"].Value = string.Concat(clinicHistory.Patient.LastName, ", ",
+                                                                            clinicHistory.Patient.FirstName);
+                        currentWorksheet.Cells["H59"].Value =
+                            string.Concat(clinicHistory.Patient.DocumentType.ToString(), " ",
+                                          clinicHistory.Patient.DocumentNumber);
+
+                        //vision EXAM
+                        currentWorksheet.Cells["F64"].Value = clinicHistory.MedicalExam.EyeFarNoCorrectionRight;
+                        currentWorksheet.Cells["I64"].Value = clinicHistory.MedicalExam.EyeFarNoCorrectionLeft;
+
+                        currentWorksheet.Cells["F65"].Value = clinicHistory.MedicalExam.EyeFarWithCorrectionRight;
+                        currentWorksheet.Cells["I65"].Value = clinicHistory.MedicalExam.EyeFarWithCorrectionLeft;
+
+                        currentWorksheet.Cells["F66"].Value = clinicHistory.MedicalExam.EyeNearNoCorrectionRight;
+                        currentWorksheet.Cells["I66"].Value = clinicHistory.MedicalExam.EyeNearNoCorrectionLeft;
+
+                        currentWorksheet.Cells["F67"].Value = clinicHistory.MedicalExam.EyeNearWithCorrectionRight;
+                        currentWorksheet.Cells["I67"].Value = clinicHistory.MedicalExam.EyeNearWithCorrectionLeft;
+
+                        currentWorksheet.Cells["F69"].Value = clinicHistory.MedicalExam.FunduscopicRight;
+                        currentWorksheet.Cells["I69"].Value = clinicHistory.MedicalExam.FunduscopicLeft;
+
+                        currentWorksheet.Cells["E68"].Value = clinicHistory.MedicalExam.ColorVision;
+                        currentWorksheet.Cells["D70"].Value = clinicHistory.MedicalExam.ViewObservations;
+
+
+                        currentWorksheet.Cells["B134"].Value = clinicHistory.ClinicalHistoryObservations;
+
+                    
+
+                        #region SecondPage
+
+
+
+                        //Faltan las observaciones de la primera hora de la historia clinica. 
+                        //Faltan las observaciones y concluciones del medico.
+                        //Faltan los resultados de examenes complementarios.
+                        //Faltan los resultados de los examenes de laboratorio.
+
+
+                        #endregion
+
+                        //Clinical exam header
+                        currentWorksheet.Cells["C76"].Value = clinicHistory.MedicalExam.Size.ToString("0.00");
+                        currentWorksheet.Cells["E76"].Value = clinicHistory.MedicalExam.Weight.ToString("0.00");
+                        currentWorksheet.Cells["G76"].Value =
+                            GetICM(clinicHistory.MedicalExam.Weight.ToString("0.00"),
+                                   clinicHistory.MedicalExam.Size.ToString("0.00")).ToString("0.00");
+                        currentWorksheet.Cells["i76"].Value =
+                            clinicHistory.MedicalExam.AbdominalCircunference.ToString("0.00");
+                        currentWorksheet.Cells["C77"].Value = string.Concat(
+                            clinicHistory.MedicalExam.BloodPressureLow, "/",
+                            clinicHistory.MedicalExam.BloodPressureHight);
+                        currentWorksheet.Cells["E77"].Value = string.Concat(clinicHistory.MedicalExam.Pulse.ToString(),
+                                                                            "PxM");
+                        //Clinical exam
+                        currentWorksheet.Cells["E79"].Value = clinicHistory.MedicalExam.Head;
+                        currentWorksheet.Cells["F79"].Value = clinicHistory.MedicalExam.HeadDetails;
+                        currentWorksheet.Cells["E80"].Value = clinicHistory.MedicalExam.Eyes;
+                        currentWorksheet.Cells["F80"].Value = clinicHistory.MedicalExam.EyesDetails;
+                        currentWorksheet.Cells["E81"].Value = clinicHistory.MedicalExam.Ear;
+                        currentWorksheet.Cells["F81"].Value = clinicHistory.MedicalExam.EarDetails;
+                        currentWorksheet.Cells["E82"].Value = clinicHistory.MedicalExam.Nose;
+                        currentWorksheet.Cells["F82"].Value = clinicHistory.MedicalExam.NoseDetails;
+                        currentWorksheet.Cells["E83"].Value = clinicHistory.MedicalExam.Mouth;
+                        currentWorksheet.Cells["F83"].Value = clinicHistory.MedicalExam.MouthDetails;
+                        currentWorksheet.Cells["E84"].Value = clinicHistory.MedicalExam.Neck;
+                        currentWorksheet.Cells["F84"].Value = clinicHistory.MedicalExam.NeckDetails;
+                        currentWorksheet.Cells["E85"].Value = clinicHistory.MedicalExam.Chest;
+                        currentWorksheet.Cells["F85"].Value = clinicHistory.MedicalExam.ChestDetails;
+                        currentWorksheet.Cells["E86"].Value = clinicHistory.MedicalExam.Lung;
+                        currentWorksheet.Cells["F86"].Value = clinicHistory.MedicalExam.LungDetails;
+                        currentWorksheet.Cells["E87"].Value = clinicHistory.MedicalExam.Heart;
+                        currentWorksheet.Cells["F87"].Value = clinicHistory.MedicalExam.HeartDetails;
+                        currentWorksheet.Cells["E88"].Value = clinicHistory.MedicalExam.PeripheralVeins;
+                        currentWorksheet.Cells["F88"].Value = clinicHistory.MedicalExam.PeripheralVeinsDetails;
+                        currentWorksheet.Cells["E89"].Value = clinicHistory.MedicalExam.PeripheralArteries;
+                        currentWorksheet.Cells["F89"].Value = clinicHistory.MedicalExam.PeripheralArteriesDetails;
+
+                        currentWorksheet.Cells["E90"].Value = clinicHistory.MedicalExam.Abdomen;
+                        currentWorksheet.Cells["F90"].Value = clinicHistory.MedicalExam.AbdomenDetails;
+                        currentWorksheet.Cells["E91"].Value = clinicHistory.MedicalExam.Hernia;
+                        currentWorksheet.Cells["F91"].Value = clinicHistory.MedicalExam.HerniaDetails;
+                        currentWorksheet.Cells["E92"].Value = clinicHistory.MedicalExam.Genitals;
+                        currentWorksheet.Cells["F92"].Value = clinicHistory.MedicalExam.GenitalsDetails;
+                        currentWorksheet.Cells["E93"].Value = clinicHistory.MedicalExam.SubcutaneousCellularTissue;
+                        currentWorksheet.Cells["F93"].Value =
+                            clinicHistory.MedicalExam.SubcutaneousCellularTissueDetails;
+
+                        currentWorksheet.Cells["E94"].Value = clinicHistory.MedicalExam.Kidneys;
+                        currentWorksheet.Cells["F94"].Value = clinicHistory.MedicalExam.KidneysDetails;
+                        currentWorksheet.Cells["E95"].Value = clinicHistory.MedicalExam.Anus;
+                        currentWorksheet.Cells["F95"].Value = clinicHistory.MedicalExam.AnusDetails;
+                        currentWorksheet.Cells["E96"].Value = clinicHistory.MedicalExam.Tips;
+                        currentWorksheet.Cells["F96"].Value = clinicHistory.MedicalExam.TipsDetails;
+                        currentWorksheet.Cells["E97"].Value = clinicHistory.MedicalExam.Backbone;
+                        currentWorksheet.Cells["F97"].Value = clinicHistory.MedicalExam.BackboneDetails;
+                        currentWorksheet.Cells["E98"].Value = clinicHistory.MedicalExam.Skin;
+                        currentWorksheet.Cells["F98"].Value = clinicHistory.MedicalExam.SkinDetails;
+                        currentWorksheet.Cells["E99"].Value = clinicHistory.MedicalExam.LympNodes;
+                        currentWorksheet.Cells["F99"].Value = clinicHistory.MedicalExam.LympNodesDetails;
+                        currentWorksheet.Cells["E100"].Value = clinicHistory.MedicalExam.NervousSystem;
+                        currentWorksheet.Cells["F100"].Value = clinicHistory.MedicalExam.NervousSystemDetails;
+                        currentWorksheet.Cells["E101"].Value = clinicHistory.MedicalExam.Motion;
+                        currentWorksheet.Cells["F101"].Value = clinicHistory.MedicalExam.MotionDetails;
+
+                        currentWorksheet.Cells["E102"].Value = clinicHistory.MedicalExam.PsychicTest;
+                        currentWorksheet.Cells["F102"].Value = clinicHistory.MedicalExam.PsychicTestDetails;
+                        currentWorksheet.Cells["E103"].Value = clinicHistory.MedicalExam.Aspect;
+                        currentWorksheet.Cells["F103"].Value = clinicHistory.MedicalExam.AspectDetails;
+                        currentWorksheet.Cells["E104"].Value = clinicHistory.MedicalExam.PhysicalDefects;
+                        currentWorksheet.Cells["F104"].Value = clinicHistory.MedicalExam.PhysicalDefectsDetails;
+                        currentWorksheet.Cells["E105"].Value = clinicHistory.MedicalExam.Scars;
+                        currentWorksheet.Cells["F105"].Value = clinicHistory.MedicalExam.ScarsDetails;
+                        currentWorksheet.Cells["E106"].Value = clinicHistory.MedicalExam.Tonsils;
+                        currentWorksheet.Cells["F106"].Value = clinicHistory.MedicalExam.TonsilsDetails;
+                        currentWorksheet.Cells["E107"].Value = clinicHistory.MedicalExam.Flatfoot;
+                        currentWorksheet.Cells["F107"].Value = clinicHistory.MedicalExam.FlatfootDetails;
+
+
+                        int practiceCounter = 0;
+                        foreach (var practice in clinicHistory.Practices)
+                        {
+                            currentWorksheet.Cells[string.Concat("B", 117 + practiceCounter)].Value =
+                                Practice.GetPractice(practice.MedicalPracticeId).Name;
+
+                            //ME FALTA EL RESULTADO
+                            //currentWorksheet.Cells[string.Concat("E", 110 + practiceCounter)].Value =
+                            //    Practice.GetPractice(practice.MedicalPracticeId).
+
+                            currentWorksheet.Cells[string.Concat("F", 117 + practiceCounter)].Value =
+                                Practice.GetPractice(practice.MedicalPracticeId).Description;
+                            practiceCounter++;
+                        }
+
+
+                        double columnwidth = 8.43;
+                        currentWorksheet.Column(2).Width = columnwidth;
+                        currentWorksheet.Column(3).Width = columnwidth;
+                        currentWorksheet.Column(4).Width = columnwidth;
+
+                        package.Save();
+                        excel.Open(string.Concat(ConfigurationSettings.AppSettings["ExcelPath"],
+                                                 clinicHistoryId.ToString(), ".xlsx"));
+                        excel.Print();
+                        excel.Close();
+                        excel.Quit();
+                        RemoveFile(string.Concat(ConfigurationSettings.AppSettings["ExcelPath"],
+                                                 clinicHistoryId.ToString(), ".xlsx"));
+                    }
+                }
+
+            }
+        }
+
+        public static void GeneratePartialExcel(Guid clinicHistoryId, string filePath, string companyName)
+        {
+            MSExcel excel = new MSExcel();
+            RemoveFile(string.Concat(ConfigurationSettings.AppSettings["ExcelPath"], clinicHistoryId.ToString(), ".xlsx"));
+            // Get the file we are going to process
+            File.Copy(filePath,
+                      string.Concat(ConfigurationSettings.AppSettings["ExcelPath"], clinicHistoryId.ToString(), ".xlsx"));
+
+            var template =
+                new FileInfo(string.Concat(ConfigurationSettings.AppSettings["ExcelPath"], clinicHistoryId.ToString(),
+                                           ".xlsx"));
+
+            // Open and read the XlSX file.
+            using (var package = new ExcelPackage(template))
+            {
+                var clinicHistory = MedicalHistory.GetMedicalHistory(clinicHistoryId);
+
+                // Get the work book in the file
+                ExcelWorkbook workBook = package.Workbook;
+                if (workBook != null)
+                {
+                    if (workBook.Worksheets.Count > 0)
+                    {
+                        // Get the first worksheet
+                        ExcelWorksheet currentWorksheet = workBook.Worksheets.First();
+
+                        if (!string.IsNullOrEmpty(clinicHistory.Patient.Photo))
+                        {
+                            if (
+                                File.Exists(string.Concat(ConfigurationSettings.AppSettings["filePhotoServerPath"],
+                                                          clinicHistory.Patient.Photo)))
+                            {
+                                AddImage(currentWorksheet, 7, 13,
+                                         string.Concat(ConfigurationSettings.AppSettings["filePhotoServerPath"],
+                                                       clinicHistory.Patient.Photo), 170, 185);
+                            }
+                        }
+
+                        var companyInfoList = CompanyInfo.GetCompanyInfoList();
+                        var companyInfo = (from cil in companyInfoList
+                                           where cil.Name == companyName
+                                           select cil).First();
+                        if (!string.IsNullOrEmpty(companyInfo.Image))
+                        {
+                            if (
+                                File.Exists(string.Concat(ConfigurationSettings.AppSettings["fileImagePath"],
+                                                          companyInfo.Image)))
+                            {
+                                AddImage(currentWorksheet, 2, 0,
+                                         string.Concat(ConfigurationSettings.AppSettings["fileImagePath"],
+                                                       companyInfo.Image), 190, 103);
+                            }
+                        }
+
+                        currentWorksheet.Cells["C6"].Value = string.Concat(companyInfo.Address, " - (",
+                                                                           companyInfo.PostalCode, ")", ", ",
+                                                                           companyInfo.Province, " Tels.: ",
+                                                                           companyInfo.Phone,
+                                                                           " - Tel/Fax ", companyInfo.Fax, " Email: ",
+                                                                           companyInfo.Email);
+
+                        var clientAddress = clinicHistory.Client.Addresses.First();
+                        //Header of the first page
+                        currentWorksheet.Cells["C10"].Value = clinicHistory.Client.Name;
+                        currentWorksheet.Cells["I10"].Value = clinicHistory.Client.Cuit;
+                        currentWorksheet.Cells["C11"].Value =
+                            string.Concat(clientAddress.StreetLineOne, " ",
+                                          clientAddress.StreetLineTwo, ", ",
+                                          clientAddress.AddressState.Name);
+                        currentWorksheet.Cells["I11"].Value = clinicHistory.Client.PhoneNumber;
+
+                        currentWorksheet.Cells["E13"].Value = string.Concat(clinicHistory.Patient.LastName, ", ",
+                                                                            clinicHistory.Patient.FirstName);
+                        currentWorksheet.Cells["E14"].Value = clinicHistory.Patient.BirthDay.ToShortDateString();
+                        currentWorksheet.Cells["C15"].Value = UiUtils.GetAge(clinicHistory.Patient.BirthDay).ToString();
+                        currentWorksheet.Cells["D18"].Value = clinicHistory.Patient.CivilState;
+                        currentWorksheet.Cells["D19"].Value = clinicHistory.Patient.InstructionLevel;
+                        currentWorksheet.Cells["C20"].Value = clinicHistory.Patient.InstructionTitle;
+
+                        currentWorksheet.Cells["E16"].Value = clinicHistory.Patient.BirthPlace.Name;
+                        currentWorksheet.Cells["D22"].Value =
+                            string.Concat(clinicHistory.Patient.DocumentType.ToString(), " ",
+                                          clinicHistory.Patient.DocumentNumber);
+
+                        currentWorksheet.Cells["I6"].Value = clinicHistory.CreatedDate.ToShortDateString();
+                        Address address = clinicHistory.Patient.Addresses.Where(x => x.Type == AddressType.Casa).First();
+                        currentWorksheet.Cells["D23"].Value =
+                            string.Concat(address.StreetLineOne + " " + address.StreetLineTwo);
+                        currentWorksheet.Cells["G3"].Value = clinicHistory.TypeOfExam.ToString().ToUpper();
+                        currentWorksheet.Cells["E25"].Value = clinicHistory.TaskToDo;
+                        currentWorksheet.Cells["D26"].Value = clinicHistory.WorkArea;
+
+
+                        //Records
+                        currentWorksheet.Cells["d31"].Value = clinicHistory.MedicalExam.HereditaryRecords;
+                        currentWorksheet.Cells["d33"].Value = clinicHistory.MedicalExam.PathologicalRecords;
+                        currentWorksheet.Cells["d36"].Value = clinicHistory.MedicalExam.SurgicalRecords;
+                        currentWorksheet.Cells["d38"].Value = clinicHistory.MedicalExam.TraumaRecors;
+                        currentWorksheet.Cells["d40"].Value = clinicHistory.MedicalExam.ObstetricalRecords;
+                        currentWorksheet.Cells["c43"].Value = clinicHistory.MedicalExam.OtherRecords;
+
+                        //Habits
+                        string habits = string.Empty;
+                        if (clinicHistory.MedicalExam.Smoke)
+                        {
+                            habits = string.Concat("Fuma (", clinicHistory.MedicalExam.SmokeCount,
+                                                   "), ");
+
+                        }
+                        else
+                        {
+                            habits = "No fuma, ";
+                        }
+                        if (clinicHistory.MedicalExam.Alcohol)
+                        {
+                            habits = string.Concat(habits, "Consume bebidas alcoholicas ( ",
+                                                   clinicHistory.MedicalExam.AlcoholCount, "), ");
+
+                        }
+                        else
+                        {
+                            habits = string.Concat(habits, "No consume bebidas alcoholicas, ");
+                        }
+                        if (clinicHistory.MedicalExam.NormalSleep)
+                        {
+                            habits = string.Concat(habits, "Tiene sueño normal y decansa (",
+                                                   clinicHistory.MedicalExam.SleepHours, "), ");
+
+                        }
+                        else
+                        {
+                            habits = string.Concat(habits, "No tiene sueño normal y no decansa (",
+                                                   clinicHistory.MedicalExam.SleepHours, "), ");
+                        }
+                        if (clinicHistory.MedicalExam.Sports)
+                        {
+                            habits = string.Concat(habits, "Realiza actividad física (",
+                                                   clinicHistory.MedicalExam.SportsDetails, "). ");
+                        }
+                        else
+                        {
+                            habits = string.Concat(habits, "No realiza actividad física.");
+                        }
+                        currentWorksheet.Cells["F45"].Value = habits;
+                    }
+                }
+                package.Save();
+                excel.Open(string.Concat(ConfigurationSettings.AppSettings["ExcelPath"],
+                                         clinicHistoryId.ToString(), ".xlsx"));
+                excel.Print();
+                excel.Close();
+                excel.Quit();
+                RemoveFile(string.Concat(ConfigurationSettings.AppSettings["ExcelPath"],
+                                         clinicHistoryId.ToString(), ".xlsx"));
+            }
+        }
+    
+
+    private static void RemoveFile(string filename)
+        {
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+        }
+        private static void AddImage(ExcelWorksheet ws, int columnIndex, int rowIndex, string filePath, int x, int y)
+        {
+            //How to Add a Image using EP Plus
+            Bitmap image = new Bitmap(filePath);
+            ExcelPicture picture = null;
+            if (image != null)
+            {
+                picture = ws.Drawings.AddPicture("pic" + rowIndex.ToString() + columnIndex.ToString(), image);
+                picture.From.Column = columnIndex;
+                picture.From.Row = rowIndex;
+                picture.From.ColumnOff = 0;
+                picture.From.RowOff = 0;
+                picture.Border.Width = 0;
+                picture.SetSize(x, y);
+            }
+        }
+        private static double GetICM(string weight, string size)
+        {
+            double convertedWeight;
+            double convertedSize;
+            if (double.TryParse(weight, out convertedWeight) && double.TryParse(size, out convertedSize))
+            {
+                return convertedWeight / (convertedSize * convertedSize);
+            }
+            return 0;
+        }
+    }
+    }
+

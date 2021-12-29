@@ -1,0 +1,3 @@
+
+
+ALTER TABLE Client ADD DocumentTypeId int NOT NULL DEFAULT (80) --CUIT

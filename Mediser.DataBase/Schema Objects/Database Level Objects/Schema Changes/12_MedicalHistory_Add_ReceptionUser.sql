@@ -1,0 +1,3 @@
+ALTER TABLE MedicalHistory
+ADD ReceptionUser uniqueidentifier NULL
+GO

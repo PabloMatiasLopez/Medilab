@@ -1,0 +1,1 @@
+ALTER TABLE MedicalPractice DROP COLUMN PracticeResultFormat

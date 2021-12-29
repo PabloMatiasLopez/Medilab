@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8654B28E-F410-4F3B-9FD7-A746B695120F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Medilab.BusinessObjects</RootNamespace>
+    <AssemblyName>Medilab.BusinessObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Labomed|AnyCPU'">
+    <OutputPath>bin\Labomed\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address\Address.cs" />
+    <Compile Include="Address\ArchiveAddressDto.cs" />
+    <Compile Include="Audit\Audit.cs" />
+    <Compile Include="BillingReport\DebtReportCriteriaDto.cs" />
+    <Compile Include="BillingReport\DebtReportResultDto.cs" />
+    <Compile Include="CAE\AssociatedReceiptDto.cs" />
+    <Compile Include="CAE\CAEInputFileDto.cs" />
+    <Compile Include="CAE\CreateInputFile.cs" />
+    <Compile Include="CAE\Enums.cs" />
+    <Compile Include="CAE\HeaderInputDto.cs" />
+    <Compile Include="CAE\InvoiceDataDto.cs" />
+    <Compile Include="CAE\IvaDto.cs" />
+    <Compile Include="CAE\OptionalDto.cs" />
+    <Compile Include="CAE\OtherTaxesDto.cs" />
+    <Compile Include="CAE\ProcessCAE.cs" />
+    <Compile Include="CAE\WebServerTypeDto.cs" />
+    <Compile Include="ClinicalHistory\GroupDto.cs" />
+    <Compile Include="ClinicalHistory\MedicalHistoryResult.cs" />
+    <Compile Include="Configuration\Client.cs" />
+    <Compile Include="Configuration\ClientDto.cs" />
+    <Compile Include="Configuration\ClientListDto.cs" />
+    <Compile Include="Configuration\CompanyInfoDto.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\NextCreditNoteNumber.cs" />
+    <Compile Include="Configuration\NextDebitNoteNumber.cs" />
+    <Compile Include="Configuration\SpecialityDto.cs" />
+    <Compile Include="Configuration\UserRoleDto.cs" />
+    <Compile Include="Configuration\UserDto.cs" />
+    <Compile Include="DebitCreditNote\CreditNote.cs" />
+    <Compile Include="DebitCreditNote\CreditNoteDto.cs" />
+    <Compile Include="DebitCreditNote\DebitNote.cs" />
+    <Compile Include="DebitCreditNote\DebitNoteDto.cs" />
+    <Compile Include="DTOs\InvoicePaymentDto.cs" />
+    <Compile Include="DTOs\ClientListItemDto.cs" />
+    <Compile Include="Invoice\AditionalItem.cs" />
+    <Compile Include="Invoice\FiscalRetention.cs" />
+    <Compile Include="Invoice\InvoiceRetentionDto.cs" />
+    <Compile Include="Invoice\InvoiceRetention.cs" />
+    <Compile Include="Invoice\InvoiceFullFooterDto.cs" />
+    <Compile Include="Invoice\FreeInvoiceBodyDto.cs" />
+    <Compile Include="Invoice\FreeInvoiceDetails.cs" />
+    <Compile Include="Invoice\FullInvoiceBodyDto.cs" />
+    <Compile Include="Invoice\FullInvoiceDetails.cs" />
+    <Compile Include="Invoice\IDetailsDisplayable.cs" />
+    <Compile Include="Invoice\IFooterDisplayable.cs" />
+    <Compile Include="Invoice\IHeaderDisplayable.cs" />
+    <Compile Include="Invoice\InvoiceFooter.cs" />
+    <Compile Include="Invoice\InvoiceFooterDto.cs" />
+    <Compile Include="Invoice\ClientInvoiceProfile.cs" />
+    <Compile Include="Invoice\IPrintableInvoiceFooterDto.cs" />
+    <Compile Include="Invoice\IPrintableInvoiceHeaderDto.cs" />
+    <Compile Include="Invoice\IInvoiceDetailFactory.cs" />
+    <Compile Include="Invoice\IInvoiceHeaderFactory.cs" />
+    <Compile Include="Invoice\INextInvoiceNumber.cs" />
+    <Compile Include="Invoice\InvoiceAHeader.cs" />
+    <Compile Include="Invoice\InvoiceBHeader.cs" />
+    <Compile Include="Invoice\InvoiceBodyDto.cs" />
+    <Compile Include="Invoice\InvoiceDetailFactory.cs" />
+    <Compile Include="Invoice\InvoiceDetails.cs" />
+    <Compile Include="Invoice\InvoiceDisplay.cs" />
+    <Compile Include="Invoice\InvoiceDetailDto.cs" />
+    <Compile Include="Invoice\InvoiceHeader.cs" />
+    <Compile Include="Invoice\InvoiceHeaderDto.cs" />
+    <Compile Include="Invoice\InvoiceHeaderFactory.cs" />
+    <Compile Include="Invoice\InvoiceProcess.cs" />
+    <Compile Include="Invoice\InvoiceToPrint.cs" />
+    <Compile Include="Invoice\InvoiceTypeCalculator.cs" />
+    <Compile Include="Invoice\IPrintableInvoiceDetail.cs" />
+    <Compile Include="Configuration\NextInvoiceNumber.cs" />
+    <Compile Include="Invoice\PendingToPayDto.cs" />
+    <Compile Include="Invoice\ProfileFiscalRetention.cs" />
+    <Compile Include="Invoice\ResumedInvoiceBodyDto.cs" />
+    <Compile Include="Invoice\ResumeInvoiceDetails.cs" />
+    <Compile Include="ListOfPrice\PriceListItemDto.cs" />
+    <Compile Include="ListOfPrice\PracticePrice.cs" />
+    <Compile Include="ListOfPrice\PracticeGroupPriceDto.cs" />
+    <Compile Include="Payment\Cash.cs" />
+    <Compile Include="Payment\Check.cs" />
+    <Compile Include="Payment\CreditNotePayment.cs" />
+    <Compile Include="Payment\ElectronicTransfer.cs" />
+    <Compile Include="Payment\Payment.cs" />
+    <Compile Include="Payment\Retention.cs" />
+    <Compile Include="Properties\BOResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BOResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalHistory\AttentionWorkflow.cs" />
+    <Compile Include="ClinicalHistory\ClinicalExam.cs" />
+    <Compile Include="ClinicalHistory\ClinicalExamFilterCriteria.cs" />
+    <Compile Include="ClinicalHistory\Group.cs" />
+    <Compile Include="ClinicalHistory\GroupMedicalPractice.cs" />
+    <Compile Include="ClinicalHistory\MedicalHistoryDto.cs" />
+    <Compile Include="ClinicalHistory\MedicalHistory.cs" />
+    <Compile Include="ClinicalHistory\MedicalHistoryPractice.cs" />
+    <Compile Include="ClinicalHistory\MedicalHistoryPracticeDto.cs" />
+    <Compile Include="ClinicalHistory\PatientPracticesDto.cs" />
+    <Compile Include="ClinicalHistory\PendingExamFilterCriteria.cs" />
+    <Compile Include="ClinicalHistory\PendingPatientDto.cs" />
+    <Compile Include="ClinicalHistory\PendingPracticeDto.cs" />
+    <Compile Include="ClinicalHistory\PendingPracticePatientClientDto.cs" />
+    <Compile Include="ClinicalHistory\Practice.cs" />
+    <Compile Include="ClinicalHistory\PracticeDto.cs" />
+    <Compile Include="Configuration\ClientArea.cs" />
+    <Compile Include="Configuration\CompanyInfo.cs" />
+    <Compile Include="Configuration\IConcurrence.cs" />
+    <Compile Include="Configuration\PrivateMedicineCompany.cs" />
+    <Compile Include="Configuration\Role.cs" />
+    <Compile Include="Configuration\RolePrivilege.cs" />
+    <Compile Include="Configuration\Speciality.cs" />
+    <Compile Include="Configuration\State.cs" />
+    <Compile Include="Configuration\User.cs" />
+    <Compile Include="Configuration\UserRole.cs" />
+    <Compile Include="Configuration\Utilities.cs" />
+    <Compile Include="Configuration\WorkRiskInsurance.cs" />
+    <Compile Include="DTOs\ListItemDto.cs" />
+    <Compile Include="DTOs\ReportDto.cs" />
+    <Compile Include="Login\Login.cs" />
+    <Compile Include="Patient\Patient.cs" />
+    <Compile Include="Patient\PatientListItemDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receipt\IPayable.cs" />
+    <Compile Include="Receipt\ReceiptDto.cs" />
+    <Compile Include="Receipt\Receipt.cs" />
+    <Compile Include="Receipt\ReceiptInvoice.cs" />
+    <Compile Include="Receipt\ReceiptToPrintDto.cs" />
+    <Compile Include="BillingReport\DebtReport.cs" />
+    <Compile Include="BillingReport\DebtByClientItemDto.cs" />
+    <Compile Include="Siap\AlicuotaIVADto.cs" />
+    <Compile Include="Siap\ComprobanteIVADto.cs" />
+    <Compile Include="Siap\IVAFile.cs" />
+    <Compile Include="Siap\ProcessIVA.cs" />
+    <Compile Include="Siap\RegistroIvaDto.cs" />
+    <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\Enums.cs" />
+    <Compile Include="Utils\Security.cs" />
+    <Compile Include="Utils\FormatForString.cs" />
+    <Compile Include="Utils\Tools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Medilab.DataAccess\Medilab.DataAccess.csproj">
+      <Project>{13DA1600-D731-4454-8023-63FD32DCEC84}</Project>
+      <Name>Medilab.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\BOResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BOResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,4 @@
+20140823: 1- Agrega columna CAE a la tabla InvoiceHeader (Mauricio)
+20141112: 2- Remueve columna PracticeResultFormat de la tabla MedicalPractice (Mauricio)
+20141112: 3- Remueve columnas Result y Observations de la tabla MedicalHistoryPractice (Mauricio)
+20141117: 4- Agrego tabla MedicalHistoryResult (Mauricio)

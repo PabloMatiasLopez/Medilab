@@ -1,0 +1,3 @@
+ALTER TABLE MedicalHistory
+ADD ChargeToClientId uniqueidentifier NULL
+GO
